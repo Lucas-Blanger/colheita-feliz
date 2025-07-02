@@ -105,5 +105,6 @@ position = Vector2(-2.68221e-07, -2.68221e-07)
 scale = Vector2(0.0898437, 0.0859375)
 sprite_frames = SubResource("SpriteFrames_ttcec")
 animation = &"idle"
+frame_progress = 0.20479
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
