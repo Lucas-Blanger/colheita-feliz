@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cx2ndkmwg6meg"]
+[gd_scene load_steps=15 format=3 uid="uid://cx2ndkmwg6meg"]
 
 [ext_resource type="Script" uid="uid://1sgip5cdvm8l" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bevvgwjlhnwro" path="res://Assets/farmingTilesheetComplete.png" id="2_6t5aa"]
@@ -96,6 +96,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(1.25, 1.5)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(32, 13)
 script = ExtResource("1_cvnsp")
@@ -108,3 +111,4 @@ animation = &"idle"
 frame_progress = 0.20479
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cvnsp")

@@ -25,3 +25,7 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	velocity = input_vector * speed
 	move_and_slide()
+
+func player_sell_method():
+	pass
+	

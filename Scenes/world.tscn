@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://bbf8cssqhnu4q"]
+[gd_scene load_steps=12 format=4 uid="uid://bbf8cssqhnu4q"]
 
 [ext_resource type="Texture2D" uid="uid://bevvgwjlhnwro" path="res://Assets/farmingTilesheetComplete.png" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://cx2ndkmwg6meg" path="res://Scenes/player.tscn" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://bdcnwis1bj33a" path="res://Scenes/gopwingzone.tscn" id="3_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://53xs8y0d7stk" path="res://Scenes/onion_seedpack.tscn" id="4_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://c7xlucn2uagcx" path="res://Scenes/carrot_seedpack.tscn" id="5_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://d3w7tjq44te44" path="res://Scenes/sellzone.tscn" id="5_o06y3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go701"]
 texture = ExtResource("1_a02cp")
@@ -540,35 +541,6 @@ texture = ExtResource("1_a02cp")
 [sub_resource type="TileSet" id="TileSet_go701"]
 sources/0 = SubResource("TileSetAtlasSource_a02cp")
 
-[sub_resource type="FontVariation" id="FontVariation_fo5ed"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ukr8"]
-atlas = ExtResource("1_a02cp")
-region = Rect2(128, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o06y3"]
-atlas = ExtResource("1_a02cp")
-region = Rect2(80, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7acu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ukr8")
-}],
-"loop": true,
-"name": &"carrot",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o06y3")
-}],
-"loop": true,
-"name": &"onio",
-"speed": 5.0
-}]
-
 [node name="world" type="Node2D"]
 scale = Vector2(16, 16)
 
@@ -591,8 +563,11 @@ format = 2
 [node name="Layer1" type="TileMapLayer" parent="forceground"]
 use_parent_material = true
 scale = Vector2(0.05, 0.05)
-tile_map_data = PackedByteArray("AABMAJIAAAAHAAgAAAAIAA8AAAAIAAgAAAAJAA8AAAAIAAgAAAAKAA8AAAAIAAgAAAALAA8AAAAIAAgAAAAMAA8AAAAIAAgAAAANAA8AAAAIAAgAAAAOAA8AAAAIAAgAAAAPAA8AAAAIAAgAAAAQAA8AAAAIAAgAAAARAA8AAAAIAAgAAAASAA8AAAAIAAgAAAATAA8AAAAIAAgAAAAUAA8AAAAIAAgAAAAVAA8AAAAIAAgAAAAWAA8AAAAIAAgAAAAXAA8AAAAIAAgAAAAYAA8AAAAIAAgAAAAZAA8AAAAIAAgAAAAaAA8AAAAIAAgAAAAbAA8AAAAIAAgAAAAcAA8AAAAIAAgAAAAdAA8AAAAIAAgAAAAeABAAAAAIAAgAAFAeABEAAAAIAAgAAFAeABIAAAAIAAgAAFAeABMAAAAIAAgAAFAeABQAAAAIAAgAAFAeABUAAAAIAAgAAFAeABYAAAAIAAgAAFAeABcAAAAIAAgAAFAeAA8AAAAJAAgAAAAeAA4AAAAIAAgAAGAeAA0AAAAIAAgAAGAeAAwAAAAIAAgAAGAeAAsAAAAKAAgAAAAfAAsAAAAIAAgAAAAgAAsAAAAIAAgAAAAhAAsAAAAIAAgAAAAiAAsAAAAIAAgAAAAjAAsAAAAIAAgAAAAlAAsAAAAIAAgAAAAkAAsAAAAIAAgAAAAmAAsAAAAIAAgAAAAnAAsAAAAIAAgAAAAoAAsAAAAIAAgAAAApAAsAAAAKAAgAADApAAoAAAAIAAgAAFApAAkAAAAMAAkAAAAoAAkAAAAMAAkAAAAqAAkAAAAMAAkAAAArAAkAAAAMAAkAAAAsAAkAAAALAAoAAGAsAAgAAAAMAAkAAAAsAAcAAAAMAAkAAAArAAcAAAAMAAkAAAAqAAcAAAAMAAkAAAApAAcAAAAMAAkAAAApAAgAAAAMAAkAAAAqAAgAAAAMAAkAAAArAAgAAAAMAAkAAAAoAAgAAAAMAAkAAAAoAAcAAAAMAAkAAAAoAAYAAAAMAAkAAAApAAYAAAAMAAkAAAAqAAYAAAAMAAkAAAAoAAUAAAAMAAkAAAApAAUAAAAMAAkAAAAqAAUAAAAMAAkAAAArAAUAAAAMAAkAAAArAAYAAAAMAAkAAAAsAAYAAAAMAAkAAAAnAAYAAAAMAAkAAAAnAAcAAAAMAAkAAAAnAAgAAAAMAAkAAAAnAAkAAAALAAoAAAAnAAUAAAAMAAkAAAAsAAUAAAAMAAkAAAArAAQAAAAMAAkAAAAqAAQAAAAMAAkAAAApAAQAAAAMAAkAAAAoAAQAAAAMAAkAAAAnAAQAAAALAAoAAFAsAAQAAAALAAoAADAHAA8AAAAHAAgAAAAeABgAAAAHAAgAAGAfABgAAAAGAAgAAAAhABgAAAAGAAgAAAAiABgAAAAGAAgAAAAgABgAAAAGAAgAAAAjABgAAAAGAAgAAAALAA4AAAAGAAgAAAALAA0AAAAGAAgAAAALAAwAAAAGAAgAAAALAAoAAAAGAAgAAAALAAsAAAAGAAgAAAALAAkAAAAGAAgAAAAiAAgAAAAAAAsAAAAiAAkAAAAAAAwAAAAjAAgAAAABAAsAAAAjAAkAAAABAAwAAAAHABgAAAALAAYAAAAIABgAAAALAAYAAAAJABgAAAALAAYAAAAKABgAAAALAAYAAAALABgAAAALAAYAAAAMABgAAAALAAYAAAANABgAAAALAAYAAAAOABgAAAALAAYAAAAPABgAAAALAAYAAAAQABgAAAALAAYAAAAHABIAAAALAAYAAAAIABIAAAALAAYAAAAJABIAAAALAAYAAAAKABIAAAAJAAYAAAALABIAAAALAAYAAAAMABIAAAALAAYAAAANABIAAAALAAYAAAAOABIAAAALAAYAAAAPABIAAAALAAYAAAARABgAAAAMAAcAAAARABcAAAAHAAcAAAARABYAAAAHAAcAAAARABUAAAAHAAcAAAARABQAAAAHAAcAAAARABMAAAAHAAcAAAARABIAAAAMAAYAAAAQABIAAAALAAYAAAAGABgAAAAIAAcAAAAGABcAAAAHAAcAAAAGABYAAAAHAAcAAAAGABUAAAAHAAcAAAAGABQAAAAHAAcAAAAGABMAAAAHAAcAAAAGABIAAAAIAAYAAAA=")
+tile_map_data = PackedByteArray("AABMAJIAAAAHAAgAAAAIAA8AAAAIAAgAAAAJAA8AAAAIAAgAAAAKAA8AAAAIAAgAAAALAA8AAAAIAAgAAAAMAA8AAAAIAAgAAAANAA8AAAAIAAgAAAAOAA8AAAAIAAgAAAAPAA8AAAAIAAgAAAAQAA8AAAAIAAgAAAARAA8AAAAIAAgAAAASAA8AAAAIAAgAAAATAA8AAAAIAAgAAAAUAA8AAAAIAAgAAAAVAA8AAAAIAAgAAAAWAA8AAAAIAAgAAAAXAA8AAAAIAAgAAAAYAA8AAAAIAAgAAAAZAA8AAAAIAAgAAAAaAA8AAAAIAAgAAAAbAA8AAAAIAAgAAAAcAA8AAAAIAAgAAAAdAA8AAAAIAAgAAAAeABAAAAAIAAgAAFAeABEAAAAIAAgAAFAeABIAAAAIAAgAAFAeABMAAAAIAAgAAFAeABQAAAAIAAgAAFAeABUAAAAIAAgAAFAeABYAAAAIAAgAAFAeABcAAAAIAAgAAFAeAA8AAAAJAAgAAAAeAA4AAAAIAAgAAGAeAA0AAAAIAAgAAGAeAAwAAAAIAAgAAGAeAAsAAAAKAAgAAAAfAAsAAAAIAAgAAAAgAAsAAAAIAAgAAAAhAAsAAAAIAAgAAAAiAAsAAAAIAAgAAAAjAAsAAAAIAAgAAAAlAAsAAAAIAAgAAAAkAAsAAAAIAAgAAAAmAAsAAAAIAAgAAAAnAAsAAAAIAAgAAAAoAAsAAAAIAAgAAAApAAsAAAAKAAgAADApAAoAAAAIAAgAAFApAAkAAAAMAAkAAAAoAAkAAAAMAAkAAAAqAAkAAAAMAAkAAAArAAkAAAAMAAkAAAAsAAkAAAALAAoAAGAsAAgAAAAMAAkAAAAsAAcAAAAMAAkAAAArAAcAAAAMAAkAAAAqAAcAAAAMAAkAAAApAAcAAAAMAAkAAAApAAgAAAAMAAkAAAAqAAgAAAAMAAkAAAArAAgAAAAMAAkAAAAoAAgAAAAMAAkAAAAoAAcAAAAMAAkAAAAoAAYAAAAMAAkAAAApAAYAAAAMAAkAAAAqAAYAAAAMAAkAAAAoAAUAAAAMAAkAAAApAAUAAAAMAAkAAAAqAAUAAAAMAAkAAAArAAUAAAAMAAkAAAArAAYAAAAMAAkAAAAsAAYAAAAMAAkAAAAnAAYAAAAMAAkAAAAnAAcAAAAMAAkAAAAnAAgAAAAMAAkAAAAnAAkAAAALAAoAAAAnAAUAAAAMAAkAAAAsAAUAAAAMAAkAAAArAAQAAAAMAAkAAAAqAAQAAAAMAAkAAAApAAQAAAAMAAkAAAAoAAQAAAAMAAkAAAAnAAQAAAALAAoAAFAsAAQAAAALAAoAADAHAA8AAAAHAAgAAAAeABgAAAAHAAgAAGAfABgAAAAGAAgAAAAhABgAAAAGAAgAAAAiABgAAAAGAAgAAAAgABgAAAAGAAgAAAAjABgAAAAGAAgAAAALAA4AAAAGAAgAAAALAA0AAAAGAAgAAAALAAwAAAAGAAgAAAALAAoAAAAGAAgAAAALAAsAAAAGAAgAAAALAAkAAAAGAAgAAAAiAAgAAAAAAAsAAAAiAAkAAAAAAAwAAAAjAAgAAAABAAsAAAAjAAkAAAABAAwAAAAHABgAAAALAAYAAAAIABgAAAALAAYAAAAJABgAAAALAAYAAAAKABgAAAALAAYAAAALABgAAAALAAYAAAAMABgAAAALAAYAAAANABgAAAALAAYAAAAOABgAAAALAAYAAAAPABgAAAALAAYAAAAQABgAAAALAAYAAAAHABIAAAALAAYAAAAIABIAAAALAAYAAAAJABIAAAALAAYAAAAKABIAAAAJAAYAAAALABIAAAALAAYAAAAMABIAAAALAAYAAAANABIAAAALAAYAAAAOABIAAAALAAYAAAAPABIAAAALAAYAAAARABgAAAAMAAcAAAARABcAAAAHAAcAAAARABYAAAAHAAcAAAARABUAAAAHAAcAAAARABQAAAAHAAcAAAARABMAAAAHAAcAAAARABIAAAAMAAYAAAAQABIAAAALAAYAAAAGABgAAAAIAAcAAAAGABcAAAAHAAcAAAAGABYAAAAHAAcAAAAGABUAAAAHAAcAAAAGABQAAAAHAAcAAAAGABMAAAAHAAcAAAAGABIAAAAIAAYAAAAhAAkAAAAJAAEAAAAtABAAAAADAAIAAAApABEAAAADAAIAAAArAA4AAAADAAIAAAArABIAAAADAAIAAAAvAAEAAAAEAAsAAAAvAAIAAAAEAAwAAAAwAAEAAAAFAAsAAAAwAAIAAAAFAAwAAAABAAMAAAAEAAsAAAABAAQAAAAEAAwAAAACAAMAAAAFAAsAAAACAAQAAAAFAAwAAAABAAYAAAAEAAsAAAABAAcAAAAEAAwAAAACAAYAAAAFAAsAAAACAAcAAAAFAAwAAAAFAAsAAAAEAAsAAAAFAAwAAAAEAAwAAAAGAAsAAAAFAAsAAAAGAAwAAAAFAAwAAAARAAsAAAAEAAsAAAARAAwAAAAEAAwAAAASAAsAAAAFAAsAAAASAAwAAAAFAAwAAAAYABQAAAAEAAsAAAAYABUAAAAEAAwAAAAZABQAAAAFAAsAAAAZABUAAAAFAAwAAAABABQAAAAEAAsAAAABABUAAAAEAAwAAAACABQAAAAFAAsAAAACABUAAAAFAAwAAAAUABkAAAAEAAsAAAAUABoAAAAEAAwAAAAVABkAAAAFAAsAAAAVABoAAAAFAAwAAAAgAAIAAAAEAAsAAAAgAAMAAAAEAAwAAAAhAAIAAAAFAAsAAAAhAAMAAAAFAAwAAAC0/x0AAAAEAAsAAAC0/x4AAAAEAAwAAAC1/x0AAAAFAAsAAAC1/x4AAAAFAAwAAAA=")
 tile_set = SubResource("TileSet_go701")
+
+[node name="sellzone" parent="." instance=ExtResource("5_o06y3")]
+position = Vector2(21.25, 10.3125)
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
 position = Vector2(2.75, 11.8125)
@@ -600,28 +575,179 @@ position = Vector2(2.75, 11.8125)
 [node name="gopwingzone" parent="." instance=ExtResource("3_5a7ea")]
 position = Vector2(7, 1.75)
 
+[node name="growingzone" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(7, 3.1875)
+
+[node name="growingzone2" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(7, 6)
+
+[node name="growingzone3" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(7, 4.5625)
+
+[node name="gopwingzone2" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(8.5, 1.75)
+
+[node name="growingzone4" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(8.5, 3.1875)
+
+[node name="growingzone5" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(8.5, 6)
+
+[node name="growingzone6" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(8.5, 4.5625)
+
+[node name="gopwingzone3" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(10, 1.75)
+
+[node name="growingzone7" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(10, 3.1875)
+
+[node name="growingzone8" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(10, 6)
+
+[node name="growingzone9" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(10, 4.5625)
+
+[node name="gopwingzone4" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(11.5, 1.75)
+
+[node name="growingzone10" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(11.5, 3.1875)
+
+[node name="growingzone11" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(11.5, 6)
+
+[node name="growingzone12" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(11.5, 4.5625)
+
+[node name="gopwingzone5" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(13, 1.75)
+
+[node name="growingzone13" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(13, 3.1875)
+
+[node name="growingzone14" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(13, 6)
+
+[node name="growingzone15" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(13, 4.5625)
+
+[node name="gopwingzone6" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(14.5, 1.75)
+
+[node name="growingzone16" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(14.5, 3.1875)
+
+[node name="growingzone17" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(14.5, 6)
+
+[node name="growingzone18" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(14.5, 4.5625)
+
+[node name="gopwingzone7" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(15.9375, 1.75)
+
+[node name="growingzone19" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(15.9375, 3.1875)
+
+[node name="growingzone20" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(15.9375, 6)
+
+[node name="growingzone21" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(15.9375, 4.5625)
+
+[node name="gopwingzone8" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(17.4375, 1.75)
+
+[node name="growingzone22" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(17.4375, 3.1875)
+
+[node name="growingzone23" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(17.4375, 6)
+
+[node name="growingzone24" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(17.4375, 4.5625)
+
+[node name="gopwingzone9" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(18.9375, 1.75)
+
+[node name="growingzone25" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(18.9375, 3.1875)
+
+[node name="growingzone26" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(18.9375, 6)
+
+[node name="growingzone27" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(18.9375, 4.5625)
+
+[node name="gopwingzone10" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(20.5, 1.75)
+
+[node name="growingzone28" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(20.5, 3.1875)
+
+[node name="growingzone29" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(20.5, 6)
+
+[node name="growingzone30" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(20.5, 4.5625)
+
+[node name="growingzone31" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(29.9375, 17.625)
+
+[node name="growingzone32" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(29.9375, 19.25)
+
+[node name="growingzone33" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(29.9375, 20.875)
+
+[node name="growingzone34" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(31.6875, 17.625)
+
+[node name="growingzone35" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(31.6875, 19.25)
+
+[node name="growingzone36" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(31.6875, 20.875)
+
+[node name="growingzone37" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(33.4375, 17.5625)
+
+[node name="growingzone38" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(33.4375, 19.1875)
+
+[node name="growingzone39" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(33.4375, 20.8125)
+
+[node name="growingzone40" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(35.125, 17.5625)
+
+[node name="growingzone41" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(35.125, 19.1875)
+
+[node name="growingzone42" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(35.125, 20.8125)
+
+[node name="growingzone43" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(36.75, 17.5625)
+
+[node name="growingzone44" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(36.75, 19.1875)
+
+[node name="growingzone45" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(36.75, 20.8125)
+
+[node name="growingzone46" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(38.4375, 17.5625)
+
+[node name="growingzone47" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(38.4375, 19.1875)
+
+[node name="growingzone48" parent="." instance=ExtResource("3_5a7ea")]
+position = Vector2(38.4375, 20.8125)
+
 [node name="onion_seedpack" parent="." instance=ExtResource("4_fo5ed")]
 position = Vector2(32.5, 4.375)
 
 [node name="carrot_seedpack" parent="." instance=ExtResource("5_5ukr8")]
 position = Vector2(35.0625, 4.4375)
-
-[node name="growingzone" parent="." instance=ExtResource("3_5a7ea")]
-position = Vector2(6.9375, 3.8125)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 33.0
-offset_top = 25.0
-offset_right = 73.0
-offset_bottom = 60.0
-theme_override_fonts/normal_font = SubResource("FontVariation_fo5ed")
-theme_override_font_sizes/normal_font_size = 0
-bbcode_enabled = true
-text = "= 0
-"
-
-[node name="carroticon" type="AnimatedSprite2D" parent="."]
-position = Vector2(31.6875, 19.625)
-scale = Vector2(0.08, 0.08)
-sprite_frames = SubResource("SpriteFrames_k7acu")
-animation = &"onio"
