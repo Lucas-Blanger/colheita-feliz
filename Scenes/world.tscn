@@ -569,9 +569,6 @@ tile_set = SubResource("TileSet_go701")
 [node name="sellzone" parent="." instance=ExtResource("5_o06y3")]
 position = Vector2(21.25, 10.3125)
 
-[node name="Player" parent="." instance=ExtResource("2_go701")]
-position = Vector2(2.75, 11.8125)
-
 [node name="gopwingzone" parent="." instance=ExtResource("3_5a7ea")]
 position = Vector2(7, 1.75)
 
@@ -751,3 +748,6 @@ position = Vector2(32.5, 4.375)
 
 [node name="carrot_seedpack" parent="." instance=ExtResource("5_5ukr8")]
 position = Vector2(35.0625, 4.4375)
+
+[node name="Player" parent="." instance=ExtResource("2_go701")]
+position = Vector2(2.75, 11.8125)
